@@ -1,0 +1,25 @@
+<p>component1 works!</p>
+
+<h2>Nombre:</h2>
+{{ nombre }}
+<br>
+<button (click)="cambiarNombre()">Cambiar Nombre</button>
+
+<hr>
+
+<h1>Tarea</h1>
+
+<input 
+  type="text"
+  [(ngModel)]="nuevaTarea"
+>
+
+<button (click)="agregar()">Agregar</button>
+
+<h1>Lista</h1>
+
+<ul>
+  <li *ngFor="let tarea of listaTareas">
+    {{ tarea }}
+  </li>
+</ul>
