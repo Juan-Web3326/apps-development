@@ -1,0 +1,35 @@
+<div>
+  <h1>Pokédex</h1>
+
+  <div *ngIf="loading">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="pokemon-list">
+    <div *ngFor="let pokemon of pokemonList" class="pokemon-card">
+      <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" class="pokemon-image" />
+      <div class="pokemon-info">
+        <h2>{{ pokemon.name }}</h2>
+        <p><strong>#{{ pokemon.id }}</strong></p>
+        <p>{{ getTypeNames(pokemon) }}</p>
+        <div class="stats">
+          <p *ngFor="let stat of pokemon.stats">
+            <strong>{{ stat.stat.name | uppercase }}:</strong> {{ stat.base_stat }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button disabled>
+      Previous
+    </button>
+    <span>Page 1</span>
+    <button disabled>Next</button>
+  </div>
+</div>
